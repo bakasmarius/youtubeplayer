@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="home-top">
+    <h1>Welcome to {{title}}!!</h1>
+    <div>
+      <span>Search:</span>
+      <input type="text" [ngModel]="search" (ngModelChange)="onSearch($event)" name="search">
+    </div>
+  </div>
+  <div *ngFor="let video of results" class="video-list">
+    <a class="visible-lg-block" href="/video/{{video.id}}"><img [src]="video.thumbnails.high.url" /></a>
+    <a class="visible-md-block visible-sm-block" href="/video/{{video.id}}"><img [src]="video.thumbnails.medium.url" /></a>
+    <a class="visible-xs-block" href="/video/{{video.id}}"><img [src]="video.thumbnails.default.url" /></a>
+    <a href="/video/{{video.id}}"><h4>{{video.title}} [{{video.duration}}]</h4></a>
+  </div>
+</div>
