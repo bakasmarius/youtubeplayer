@@ -1,3 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, section {background-color: lightgray;}
+.centralize {margin: 0 auto;}

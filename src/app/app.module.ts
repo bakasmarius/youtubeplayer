@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -12,6 +13,7 @@ import { VideoComponent } from './video/video.component';
 import { YoutubeService } from './_services/youtube.service';
 
 import { YoutubePlayerMiniModule }  from 'ng2-youtube-player-mini'
+import { DropdownModule, InputTextModule } from 'primeng/primeng';
 import 'moment-duration-format';
 
 @NgModule({
@@ -23,10 +25,12 @@ import 'moment-duration-format';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     APP_ROUTES_PROVIDER,
-    YoutubePlayerMiniModule
+    YoutubePlayerMiniModule,
+    DropdownModule, InputTextModule
   ],
   providers: [YoutubeService],
   bootstrap: [AppComponent]
