@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class VideoComponent implements OnInit {
 
   public videoId: string;
+  public player: any;
 
   constructor(private route: ActivatedRoute) {
       this.videoId = route.snapshot.params['id'];
