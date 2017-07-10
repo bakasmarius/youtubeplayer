@@ -37,8 +37,8 @@ export class HomeComponent implements OnInit {
         this.pageInfo.prevPageToken = data.prevPageToken;
         let ids = '';
         data.items.forEach(item => {
-          if (item['id']['kind'] === 'youtube#video') {
-            ids = ids ? `${ids},${item['id']['videoId']}` : item['id']['videoId'];
+          if (item.id.kind === 'youtube#video') {
+            ids = ids ? `${ids},${item.id.videoId}` : item.id.videoId;
           }
         });
         this.doSearch(ids);
@@ -66,11 +66,10 @@ export class HomeComponent implements OnInit {
 
   formatVideoData(item) {
     return {
-      thumbnails: item['snippet']['thumbnails'],
-      id: item['id'],
-      title: item['snippet']['title'],
-      duration: moment.duration(item['contentDetails']['duration'], "minutes").format('HH:mm:ss', { trim: false }),
-      url: 'https://www.youtube.com/watch?v=' + item['id']
+      thumbnails: item.snippet.thumbnails,
+      id: item.id,
+      title: item.snippet.title,
+      duration: moment.duration(item.contentDetails.duration, 'minutes').format('HH:mm:ss', { trim: false })
     }
   }
 

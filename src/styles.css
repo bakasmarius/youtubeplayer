@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, section {background-color: lightgray;}
+html, section, .container-fluid {background-color: lightgray;}
 .centralize {margin: 0 auto;}
+section {padding-top: 1em;}
