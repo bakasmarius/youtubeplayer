@@ -11,14 +11,16 @@ export class YoutubeService {
 
   constructor(private http: Http) { }
 
-  getSnippet(query) {
-    return this.http.get(`${searchUrl}?q=${query}&maxResults=5&part=snippet&key=${key}`).debounceTime(500)
+  getSnippet(query, maxResults, pageToken = undefined) {
+    pageToken = pageToken ? `&pageToken=${pageToken}` : '';
+    let qUrl = `${searchUrl}?q=${query}&maxResults=${maxResults}&part=snippet${pageToken}&key=${key}`;
+    return this.http.get(qUrl).debounceTime(500)
       .map((res:Response) => res.json())
-      .map(json => json.items);
+      .map(json => json);
   }
 
-  getContent(query) {
-    return this.http.get(`${videoUrl}?id=${query}&part=snippet,contentDetails,statistics&key=${key}`)
+  getContent(ids) {
+    return this.http.get(`${videoUrl}?id=${ids}&part=snippet,contentDetails,statistics&key=${key}`)
       .map((res:Response) => res.json())
       .map(json => json.items);
   }
